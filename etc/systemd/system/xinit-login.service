@@ -1,0 +1,8 @@
+[Unit]
+After=systemd-user-sessions.service
+
+[Service]
+ExecStart=/home/ldh/.local/bin/xinit-login.sh
+
+[Install]
+WantedBy=multi-user.target
