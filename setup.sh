@@ -5,8 +5,7 @@ set -e	# exit immediatly on failure
 
 # Path to this script, will be used as the stow directory
 STOW_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-sudo stow --restow --target /etc etc
+sudo stow --restow --dir=$STOW_DIR --target /etc etc
 
 
 printf "\n\n###### Done!\n"
