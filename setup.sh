@@ -5,7 +5,11 @@ set -e	# exit immediatly on failure
 
 # Path to this script, will be used as the stow directory
 STOW_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-sudo stow --restow --dir=$STOW_DIR --target /etc etc
+if [[ $EUID -eq 0 ]]; then
+	stow --restow --dir=$STOW_DIR --target /etc etc
+else
+	sudo stow --restow --dir=$STOW_DIR --target /etc etc
+fi
 
 
 printf "\n\n###### Done!\n"
