@@ -1,0 +1,21 @@
+# Keyboard mappings
+# Matching format:
+#     evdev:input:b<bus_id>v<vendor_id>p<product_id>e<version_id>-<modalias>
+# Assignment format:
+#     KEYBOARD_KEY_[scancode]=keycode
+# See:
+#     http://www.comptechdoc.org/os/linux/howlinuxworks/linux_hlkeycodes.html
+#     https://wiki.archlinux.org/index.php/Map_scancodes_to_keycodes#Example_for_custom_hwdb
+
+# build-in keyboard: match all AT keyboards for now
+evdev:atkbd:dmi:*
+ KEYBOARD_KEY_3a=leftctrl	# bind capslock to leftctrl
+ KEYBOARD_KEY_2b=backspace	# bind pipe to backspace
+ KEYBOARD_KEY_0e=backslash	# bind backspace to pipe 
+
+# KBT Pure, identified by Holtek Semiconductor controller
+evdev:input:b0003v04D9p0134*
+ KEYBOARD_KEY_700e2=leftctrl	# Alt_L to Ctrl_L so that alt is next to spacebar
+ KEYBOARD_KEY_700e3=leftalt		# Ctrl_L to Alt_L
+ KEYBOARD_KEY_70031=backspace	# bind pipe to backspace
+ KEYBOARD_KEY_7002a=backslash	# bind backspace to pipe 
